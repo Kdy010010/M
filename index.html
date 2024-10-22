@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        #slideshow {
+            width: 600px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+        img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="slideshow">
+    <img src="1.png" class="active" alt="Image 1">
+    <img src="2.png" alt="Image 2">
+    <img src="3.png" alt="Image 3">
+    <img src="4.png" alt="Image 4">
+    <img src="5.png" alt="Image 5">
+    <img src="6.png" alt="Image 6">
+    <img src="7.png" alt="Image 7">
+    <img src="8.png" alt="Image 8">
+    <img src="9.png" alt="Image 9">
+    <img src="10.png" alt="Image 10">
+</div>
+
+<script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll("#slideshow img");
+    const totalImages = images.length;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.remove("active");
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+        images[currentImageIndex].classList.add("active");
+    }
+
+    setInterval(showNextImage, 2000); // Change image every 2 seconds
+</script>
+
+</body>
+</html>
